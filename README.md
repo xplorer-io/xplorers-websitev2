@@ -1,4 +1,4 @@
-# Xplorers website built with [Next.js](https://nextjs.org/) and [chakra-ui@2.7.1](https://chakra-ui.com/)
+# Xplorers websitev2
 
 ## Getting Started
 
@@ -24,6 +24,20 @@ yarn dev
 
 ## Contributiin Guide
 
-This is a community driven project, and we encourage everyone to contribute to such projects. However, for this project, one should have basic knowledge of web development ecosystem, such as `HTML`, `CSS`, `Javascript` and basic knowledge of any CSS or component library (we are using `chakra-ui`) and JS library/framework (we are using `NextJS`).
+This is a community driven project, and we encourage everyone to contribute to such projects. However, for this project, one should have basic knowledge of web development ecosystem, such as,
+
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [chakra-ui](https://chakra-ui.com/) (specific to this project)
+- [NextJS](https://nextjs.org/) (specific to this project)
+
+### style guide
+
+We follow `airbnb` style guide.
+
+- [javascript](https://github.com/airbnb/javascript)
+- [css-in-javascript](https://github.com/airbnb/javascript/tree/master/css-in-javascript)
+- [react](https://github.com/airbnb/javascript/tree/master/react)
 
 Please reach out to admin or maintainer of this project to get started.
