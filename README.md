@@ -14,7 +14,7 @@ git clone https://github.com/xplorer-io/xplorers-websitev2.git
 npm install
 ```
 
-2. run the dev server which runs at [http://localhost:3000](http://localhost:3000)
+3. run the dev server which runs at [http://localhost:3000](http://localhost:3000)
 
 ```bash
 npm run dev
