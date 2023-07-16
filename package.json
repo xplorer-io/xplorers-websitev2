@@ -26,6 +26,7 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
+    "@stackbit/cms-git": "^0.3.13",
     "@stackbit/types": "^0.8.3"
   }
 }
