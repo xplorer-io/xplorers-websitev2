@@ -1,7 +1,7 @@
 "use client";
 
 import { CacheProvider } from "@chakra-ui/next-js";
-import { ChakraProvider } from "@chakra-ui/react";
+import { Box, ChakraProvider } from "@chakra-ui/react";
 import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 
@@ -11,7 +11,9 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <QueryClientProvider client={queryClient}>
       <CacheProvider>
-        <ChakraProvider>{children}</ChakraProvider>
+        <ChakraProvider>
+          <Box minH={"100vh"}>{children}</Box>
+        </ChakraProvider>
       </CacheProvider>
     </QueryClientProvider>
   );

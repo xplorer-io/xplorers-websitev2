@@ -6,7 +6,7 @@ import SocialLinks from "./SocialLinks";
 
 const Footer = () => {
   return (
-    <Flex>
+    <Flex minH={"10vh"}>
       <Logo />
       <SocialLinks />
     </Flex>

@@ -1,5 +1,5 @@
+"use client";
 import { Box, Flex } from "@chakra-ui/react";
-("use client");
 import React from "react";
 import NavLinks from "./NavLinks";
 import Logo from "../Logo";
@@ -10,7 +10,7 @@ const SearchBox = () => {
 
 const Navbar = () => {
   return (
-    <Flex>
+    <Flex minH={"10vh"}>
       <Logo />
       <SearchBox />
       <NavLinks />
