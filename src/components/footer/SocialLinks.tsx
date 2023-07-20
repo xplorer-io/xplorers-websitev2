@@ -2,7 +2,7 @@
 import React from "react";
 
 const SocialLinks = () => {
-  return <div>SocialLinks</div>;
+  return <div>More Links</div>;
 };
 
 export default SocialLinks;

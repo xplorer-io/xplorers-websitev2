@@ -22,7 +22,14 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>
           <Navbar />
-          <div style={{ minHeight: "80vh" }}>{children}</div>
+          <div
+            style={{
+              width: "95%",
+              minHeight: "80vh",
+            }}
+          >
+            {children}
+          </div>
           <Footer />
         </Providers>
       </body>

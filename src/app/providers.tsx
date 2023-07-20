@@ -12,7 +12,18 @@ export function Providers({ children }: { children: React.ReactNode }) {
     <QueryClientProvider client={queryClient}>
       <CacheProvider>
         <ChakraProvider>
-          <Box minH={"100vh"}>{children}</Box>
+          <Box
+            sx={{
+              width: "100vw",
+              minHeight: "100vh",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {children}
+          </Box>
         </ChakraProvider>
       </CacheProvider>
     </QueryClientProvider>
