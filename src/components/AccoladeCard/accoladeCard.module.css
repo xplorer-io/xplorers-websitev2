@@ -1,0 +1,27 @@
+.main {
+  border-radius: 10px;
+  background-color: #f5f5f5;
+  padding: 1rem;
+  box-shadow: 2px 2px 5px #c9c9c9;
+
+  .upperBox {
+  }
+  .heading {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .description {
+  }
+  .bottomBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5px;
+  }
+  .tagsBox {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+}

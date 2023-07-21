@@ -1,17 +1,22 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import logo from "@assets/xplorers-logo-transparent.png";
+import logo from "@assets/images/xplorers-logo-transparent.png";
 import { Box } from "@chakra-ui/react";
+import Link from "next/link";
+// @ts-ignore
+import ROUTE from "@types/routes";
 
 const Logo = () => {
   return (
     <Box>
-      <Image
-        src={logo}
-        alt="xplorers-logo"
-        style={{ maxHeight: "200px", maxWidth: "200px" }}
-      />
+      <Link href={ROUTE.HOME}>
+        <Image
+          src={logo}
+          alt="xplorers-logo"
+          style={{ maxHeight: "200px", maxWidth: "200px" }}
+        />
+      </Link>
     </Box>
   );
 };
