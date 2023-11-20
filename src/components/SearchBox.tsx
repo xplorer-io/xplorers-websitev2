@@ -1,17 +1,24 @@
-import { Box, Input, InputGroup, InputLeftAddon } from "@chakra-ui/react";
+import {
+  Flex,
+  IconButton,
+  Input,
+  InputGroup,
+  InputRightElement,
+} from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 
 const SearchBox = () => {
   return (
-    <Box sx={{ border: "1px solid blue", width: "100%" }}>
-      <InputGroup>
-        <InputLeftAddon
-          // eslint-disable-next-line react/no-children-prop
-          children={<SearchIcon />}
-        />
-        <Input placeholder="Search" />
+    <Flex sx={{ width: "100%", justifyContent: "center" }}>
+      <InputGroup sx={{ width: { base: "100%", md: "50%" } }}>
+        <InputRightElement>
+          <IconButton onClick={() => {}} aria-label={"search-button"}>
+            <SearchIcon />
+          </IconButton>
+        </InputRightElement>
+        <Input placeholder="Search Accolades" />
       </InputGroup>
-    </Box>
+    </Flex>
   );
 };
 export default SearchBox;

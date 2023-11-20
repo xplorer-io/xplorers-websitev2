@@ -1,4 +1,4 @@
-import AccoladesBox from "@components/AccoladesBox";
+import AccoladesPage from "@components/pages/AccoladesPage";
 import { NextPage } from "next";
 import React from "react";
 
@@ -6,12 +6,13 @@ export const metadata = {
   title: "Xplorers | Accolades",
   description: "Xplorers website",
 };
-const AccoladesPage: NextPage = () => {
+
+const Index: NextPage = () => {
   return (
     <div>
-      <AccoladesBox />
+      <AccoladesPage />
     </div>
   );
 };
 
-export default AccoladesPage;
+export default Index;

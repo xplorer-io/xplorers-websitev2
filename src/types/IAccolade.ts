@@ -1,10 +1,8 @@
 export interface IAccolade {
   id: string;
-  title: string;
-  description: string;
+  message: string;
   dateAdded: string;
   dateUpdated: string;
   editToken: string;
-  tags?: Array<string | null>;
   authorId?: string;
 }
