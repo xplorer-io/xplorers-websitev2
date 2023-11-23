@@ -1,8 +1,7 @@
 export interface IAccolade {
-  id: string;
+  accoladeId: string;
+  author: string;
   message: string;
-  dateAdded: string;
-  dateUpdated: string;
-  editToken: string;
-  authorId?: string;
+  createdAt?: number;
+  updatedAt?: number;
 }

@@ -16,12 +16,14 @@ import {
   Text,
   useDisclosure,
   Textarea,
+  Checkbox,
 } from "@chakra-ui/react";
 import AccoladesBox from "@components/AccoladesBox";
 import SearchBox from "@components/SearchBox";
 import { NextPage } from "next";
 import React, { useState } from "react";
 import { AddIcon } from "@chakra-ui/icons";
+import { useMutation, useQuery, useQueryClient } from "react-query";
 
 export const metadata = {
   title: "Xplorers | Accolades",
@@ -31,8 +33,50 @@ export const metadata = {
 const AccoladesPage: NextPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [fullName, setFullName] = useState("");
-  const [message, setMessage] = useState<any>(null);
-  const createAccolade = () => {};
+  const [message, setMessage] = useState("");
+  const [checked, setChecked] = useState(false);
+  const queryClient = useQueryClient();
+
+  const createAccolade = async () => {
+    mutateAsync({
+      message: message,
+      author: checked ? "Anonymous" : fullName,
+    }).then(() => {
+      onClose();
+      queryClient.invalidateQueries("accolades");
+    });
+
+    // reset form
+    setFullName("");
+    setMessage("");
+    setChecked(false);
+  };
+
+  const { data, isLoading: fetchingAccolades } = useQuery({
+    queryKey: "accolades",
+    queryFn: async () => {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/accolades`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      return await res.json();
+    },
+  });
+
+  const { mutateAsync, isLoading: creatingAccolade } = useMutation(
+    async (data: any) => {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/accolades`, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      return await res.json();
+    }
+  );
 
   return (
     <Stack gap={5} my={5}>
@@ -54,9 +98,10 @@ const AccoladesPage: NextPage = () => {
             <FormControl>
               <FormLabel>Name (Optional) :</FormLabel>
               <Input
-                placeholder="Full Name"
+                placeholder="Name"
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
+                disabled={checked}
               />
             </FormControl>
             <FormControl isRequired mt={4}>
@@ -67,16 +112,32 @@ const AccoladesPage: NextPage = () => {
                 onChange={(e) => setMessage(e.target.value)}
               />
             </FormControl>
+            <FormControl isRequired mt={4}>
+              <Checkbox
+                isChecked={checked}
+                onChange={(e) => {
+                  setChecked(e.target.checked);
+                  setFullName("");
+                }}
+              >
+                Send Anonilously?
+              </Checkbox>
+            </FormControl>
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={createAccolade}>
+            <Button
+              colorScheme="blue"
+              mr={3}
+              onClick={createAccolade}
+              isLoading={fetchingAccolades || creatingAccolade}
+            >
               Save
             </Button>
             <Button onClick={onClose}>Cancel</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
-      <AccoladesBox />
+      {!fetchingAccolades && <AccoladesBox accolades={data.acaccolades} />}
     </Stack>
   );
 };

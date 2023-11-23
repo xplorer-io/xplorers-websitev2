@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
 import { NextPage } from "next";
-import { Box, Button, Icon, Text } from "@chakra-ui/react";
+import { Box, Button, Text } from "@chakra-ui/react";
 import logo from "@assets/images/xplorers-logo-transparent.png";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { joinSlackUrl } from "@types/constants";
+import { joinSlackUrl } from "../types/constants";
 import slackIcon from "../../public/images/slackIcon.svg";
 
 const Home: NextPage = () => {

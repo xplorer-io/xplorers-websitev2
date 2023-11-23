@@ -40,7 +40,7 @@ const AccoladeCard = (props: IAccolade) => {
       <h2>
         <AccordionButton>
           <Box as="span" flex="1" textAlign="left">
-            {props.message.substring(0, 100)}...
+            <b>{props.author}</b> : {props.message.substring(0, 100)}...
           </Box>
           <AccordionIcon />
         </AccordionButton>

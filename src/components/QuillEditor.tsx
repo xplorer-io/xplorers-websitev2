@@ -17,13 +17,7 @@ type EditorProps = {
   readOnly?: Boolean;
 } & CSSProperties;
 
-const QuillEditor = ({
-  children,
-  content,
-  setContent,
-  readOnly,
-  ...props
-}: EditorProps) => {
+const QuillEditor = ({ children, setContent, readOnly }: EditorProps) => {
   const TOOLBAR_OPTIONS = [
     [{ header: [1, 2, 3, 4, 5, 6, false] }],
     [{ font: [] }],
@@ -65,7 +59,7 @@ const QuillEditor = ({
 
   return (
     <>
-      <div id="editor" ref={editorRef} {...props}>
+      <div id="editor" ref={editorRef}>
         {children}
       </div>
     </>
