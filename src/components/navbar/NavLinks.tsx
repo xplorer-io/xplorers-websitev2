@@ -12,7 +12,7 @@ const NavLinks = () => {
     // { label: "Blog", href: "/blog" },
     { label: "Playlist", href: "/playlist" },
     // { label: "Accolades", href: "/accolades" },
-    { label: "Projects", href: "/playlists" },
+    { label: "Projects", href: "/projects" },
   ];
 
   return (
