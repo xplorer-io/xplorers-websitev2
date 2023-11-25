@@ -34,6 +34,7 @@ const Navbar = () => {
       route: ROUTE.ACCOLADES,
     },
   ];
+
   return (
     <Flex
       sx={{

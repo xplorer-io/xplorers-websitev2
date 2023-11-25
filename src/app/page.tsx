@@ -1,14 +1,24 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { NextPage } from "next";
 import { Box, Button, Text } from "@chakra-ui/react";
 import logo from "@assets/images/xplorers-logo-transparent.png";
 import Image from "next/image";
-import { motion, useAnimationControls } from "framer-motion";
+import { motion } from "framer-motion";
 import { joinSlackUrl } from "../types/constants";
 import slackIcon from "../../public/images/slackIcon.svg";
+import { useUserContext } from "contexts/UserContext";
 
 const Home: NextPage = () => {
+  const { setUser } = useUserContext();
+
+  useEffect(() => {
+    const findUser = sessionStorage.getItem("user");
+
+    const loggedInUser = !!findUser ? JSON.parse(findUser) : undefined;
+    setUser(loggedInUser);
+  }, [setUser]);
+
   return (
     <Box
       sx={{
