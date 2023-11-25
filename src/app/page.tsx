@@ -9,7 +9,6 @@ import { joinSlackUrl } from "../types/constants";
 import slackIcon from "../../public/images/slackIcon.svg";
 
 const Home: NextPage = () => {
-  const controls = useAnimationControls();
   return (
     <Box
       sx={{
