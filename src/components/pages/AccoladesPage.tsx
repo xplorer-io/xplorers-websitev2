@@ -17,6 +17,8 @@ import {
   useDisclosure,
   Textarea,
   Checkbox,
+  Alert,
+  AlertIcon,
 } from "@chakra-ui/react";
 import AccoladesBox from "@components/AccoladesBox";
 import SearchBox from "@components/SearchBox";
@@ -137,7 +139,15 @@ const AccoladesPage: NextPage = () => {
           </ModalFooter>
         </ModalContent>
       </Modal>
-      {!fetchingAccolades && <AccoladesBox accolades={data.acaccolades} />}
+      {!data && (
+        <Alert status="error">
+          <AlertIcon />
+          There was an error processing your request
+        </Alert>
+      )}
+      {!fetchingAccolades && data && (
+        <AccoladesBox accolades={data?.acaccolades} />
+      )}
     </Stack>
   );
 };

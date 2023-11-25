@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { IPlaylist } from "../../types/playlist";
 import { Playlists } from "./Playlists";
@@ -6,9 +8,11 @@ interface IPlaylistsContainerProps {
   onGoToPlayListClick: (playlistURL: string) => void;
 }
 
-export function PlaylistsContainer({
-  onGoToPlayListClick,
-}: IPlaylistsContainerProps) {
+export function PlaylistsContainer() {
+  const onGoToPlayListClick = (playlistURL: string) => {
+    window.open(playlistURL, "_blank");
+  };
+
   return (
     <Playlists
       playlists={PLAYLISTS}

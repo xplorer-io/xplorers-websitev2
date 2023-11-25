@@ -9,11 +9,11 @@ const Footer = () => {
   return (
     <Flex
       sx={{
-        minHeight: "10vh",
         justifyContent: "space-around",
         alignItems: "center",
         boxShadow: "0 2px 5px #c9c9c9",
         width: "100%",
+        padding: "1rem",
       }}
     >
       <Logo />

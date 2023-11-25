@@ -1,8 +1,7 @@
 "use client";
 import { Accordion, Box } from "@chakra-ui/react";
 import React from "react";
-// @ts-ignore
-import { IAccolade } from "@types/IAccolade";
+import { IAccolade } from "../types/IAccolade";
 import AccoladeCard, { AnimatedBox } from "@components/AccoladeCard";
 
 const AccoladesBox = ({ accolades }: { accolades: IAccolade[] }) => {

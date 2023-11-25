@@ -4,19 +4,21 @@ import { NextPage } from "next";
 import { Box, Button, Text } from "@chakra-ui/react";
 import logo from "@assets/images/xplorers-logo-transparent.png";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useAnimationControls } from "framer-motion";
 import { joinSlackUrl } from "../types/constants";
 import slackIcon from "../../public/images/slackIcon.svg";
 
 const Home: NextPage = () => {
+  const controls = useAnimationControls();
   return (
     <Box
       sx={{
-        height: "80vh",
+        height: "100%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        flexGrow: 1,
       }}
     >
       <motion.div
@@ -50,20 +52,21 @@ const Home: NextPage = () => {
           mt={4}
           rightIcon={
             <motion.div
-              whileHover={{ scale: 1.5, rotate: 90 }}
+              whileHover={{ scale: 1.5, rotate: 180 }}
               whileTap={{
-                scale: 0.8,
-                rotate: -90,
-                borderRadius: "100%",
+                scale: 1,
+                rotate: -180,
               }}
             >
               <Image src={slackIcon} alt={""} height={20} width={20}></Image>
             </motion.div>
           }
+          as="a"
+          href={joinSlackUrl}
+          target="_blank"
+          rel="noreferrer"
         >
-          <a href={joinSlackUrl} target="_blank" rel="noreferrer">
-            Join us in
-          </a>
+          Join us in
         </Button>
       </motion.div>
     </Box>

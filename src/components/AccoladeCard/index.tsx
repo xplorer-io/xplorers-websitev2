@@ -7,8 +7,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { motion } from "framer-motion";
-// @ts-ignore
-import { IAccolade } from "@types/IAccolade";
+import { IAccolade } from "../../types/IAccolade";
 
 export const AnimatedBox = ({
   delay,
