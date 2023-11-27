@@ -73,7 +73,7 @@ function EmptyState() {
           Empty playlists
         </Heading>
         <Text color={'gray.500'} mb={6}>
-          We're sorry but we don't have any playlists to show you.
+          We&apos;re sorry but we don&apos;t have any playlists to show you.
         </Text>
       </Box>
   )
