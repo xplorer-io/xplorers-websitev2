@@ -15,6 +15,7 @@ export function PlaylistCardLayout({ children }: IPlaylistCardLayoutProps) {
       boxShadow="md"
       p="4"
       gap="5"
+      maxWidth="min-content"
     >
       {children}
     </Flex>

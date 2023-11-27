@@ -1,20 +1,14 @@
 import React, { ReactNode } from "react";
 
+import { Stack } from "@chakra-ui/react";
+
 interface IPlaylistPageLayoutProps {
   children: ReactNode;
 }
-export function PlaylistPageLayout({ children }: IPlaylistPageLayoutProps) {
+export function PlaylistContainerLayout({ children }: IPlaylistPageLayoutProps) {
   return (
-    <div
-      style={{
-        marginTop: "12px",
-        marginBottom: "12px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-      }}
-    >
+    <Stack paddingY="12" marginX="12">
       {children}
-    </div>
+    </Stack>
   );
 }
