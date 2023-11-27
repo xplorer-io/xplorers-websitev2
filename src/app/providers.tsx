@@ -1,6 +1,7 @@
 "use client";
 
-import { Box, ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, Stack } from "@chakra-ui/react";
+import { UserContextProvider } from "contexts/UserContext";
 import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 
@@ -10,18 +11,18 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <QueryClientProvider client={queryClient}>
       <ChakraProvider>
-        <Box
-          sx={{
-            width: "100vw",
-            minHeight: "100vh",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          {children}
-        </Box>
+        <UserContextProvider>
+          <Stack
+            sx={{
+              width: "100vw",
+              minHeight: "100vh",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {children}
+          </Stack>
+        </UserContextProvider>
       </ChakraProvider>
     </QueryClientProvider>
   );

@@ -1,4 +1,4 @@
-import { Box, Icon, Tooltip } from "@chakra-ui/react";
+import { Box, Icon } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
 import { AiFillGithub, AiOutlineSlack, AiOutlineYoutube } from "react-icons/ai";
@@ -35,9 +35,7 @@ const NavIcons = () => {
       {footerIcons.map(({ tooltip, icon, href }) => {
         return (
           <Link key={tooltip} href={href}>
-            <Tooltip label={tooltip}>
-              <Icon as={icon} sx={{ height: "25px", width: "25px" }} />
-            </Tooltip>
+            <Icon as={icon} sx={{ height: "25px", width: "25px" }} />
           </Link>
         );
       })}

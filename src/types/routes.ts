@@ -7,6 +7,9 @@ enum ROUTE {
   PROFILE = "/profile",
   ACCOLADES = "/accolades",
   CREATE = "/create",
+  ABOUT = "/about",
+  PLAYLIST = "/playlist",
+  PROJECTS = "/projects",
 }
 
 export default ROUTE;

@@ -1,56 +1,33 @@
-import { ChevronDownIcon } from "@chakra-ui/icons";
-import {
-  Avatar,
-  Box,
-  Button,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-} from "@chakra-ui/react";
-import Link from "next/link";
+"use client";
+import { Avatar, Button } from "@chakra-ui/react";
+import { useUserContext } from "contexts/UserContext";
 import React from "react";
+import { FcGoogle } from "react-icons/fc";
+import { SignInWithGoogle } from "services/firebase";
 
 const NavButtons = () => {
-  const navLinks = [{ label: "Log In", href: "/accolades" }];
+  const { user, setUser } = useUserContext();
 
-  const menuItems = [
-    { label: "About", href: "/about" },
-    { label: "Blog", href: "/blog" },
-    { label: "Playlist", href: "/playlist" },
-  ];
+  const signInHandler = () => {
+    SignInWithGoogle().then((data) => {
+      setUser(data);
+
+      // Save data to sessionStorage
+      sessionStorage.setItem("user", JSON.stringify(data));
+    });
+  };
 
   return (
     <>
-      <Box sx={{ gap: "10px", display: { sm: "none", md: "flex" } }}>
-        {navLinks.map(({ label, href }) => {
-          return (
-            <Button key={label}>
-              <Link href={href}>{label}</Link>
-            </Button>
-          );
-        })}
-      </Box>
-      <Box sx={{ gap: "10px", display: { sm: "flex", md: "none" } }}>
-        <Menu>
-          <MenuButton
-            as={Button}
-            variant={"text"}
-            rightIcon={<ChevronDownIcon />}
-          >
-            <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
-          </MenuButton>
-          <MenuList>
-            {menuItems.map(({ label, href }) => {
-              return (
-                <MenuItem as={"a"} href={href} key={label}>
-                  {label}
-                </MenuItem>
-              );
-            })}
-          </MenuList>
-        </Menu>
-      </Box>
+      {user ? (
+        <Button variant={"text"}>
+          <Avatar name={user.displayName} src={user.photoURL} />
+        </Button>
+      ) : (
+        <Button onClick={signInHandler} rightIcon={<FcGoogle />}>
+          Sign In
+        </Button>
+      )}
     </>
   );
 };

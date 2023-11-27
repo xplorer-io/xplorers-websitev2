@@ -21,8 +21,10 @@ export default function RootLayout({
           <Navbar />
           <div
             style={{
-              width: "95%",
-              minHeight: "80vh",
+              width: "100%",
+              display: "flex",
+              flexDirection: "column",
+              flexGrow: 1,
             }}
           >
             {children}
