@@ -13,28 +13,9 @@ import NavLinks from "@components/navbar/NavLinks";
 import Logo from "@components/Logo";
 import NavButtons from "./NavButtons";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import ROUTE from "../../types/routes";
+import { navLinks } from "../../types/constants";
 
 const Navbar = () => {
-  const footerLinks = [
-    {
-      name: "About",
-      route: ROUTE.ABOUT,
-    },
-    {
-      name: "Playlist",
-      route: ROUTE.PLAYLIST,
-    },
-    {
-      name: "Project",
-      route: ROUTE.PROJECTS,
-    },
-    {
-      name: "Accolades",
-      route: ROUTE.ACCOLADES,
-    },
-  ];
-
   return (
     <Flex
       sx={{
@@ -51,13 +32,15 @@ const Navbar = () => {
             <HamburgerIcon />
           </MenuButton>
           <MenuList>
-            {footerLinks.map(({ name, route }) => {
-              return (
-                <MenuItem as={"a"} href={route} key={route}>
-                  {name}
-                </MenuItem>
-              );
-            })}
+            {navLinks
+              .filter((project) => project.enabled)
+              .map(({ name, route }) => {
+                return (
+                  <MenuItem as={"a"} href={route} key={route}>
+                    {name}
+                  </MenuItem>
+                );
+              })}
           </MenuList>
         </Menu>
       </Box>

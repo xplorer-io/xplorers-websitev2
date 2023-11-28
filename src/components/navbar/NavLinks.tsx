@@ -8,10 +8,7 @@ const NavLinks = () => {
   const pathname = usePathname();
 
   const navLinks = [
-    { label: "About", href: "/about" },
-    // { label: "Blog", href: "/blog" },
     { label: "Playlist", href: "/playlist" },
-    // { label: "Accolades", href: "/accolades" },
     { label: "Projects", href: "/projects" },
   ];
 

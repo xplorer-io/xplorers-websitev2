@@ -1,30 +1,12 @@
 "use client";
+
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
-import ROUTE from "../../types/routes";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
+import { navLinks } from "../../types/constants";
 
 const SocialLinks = () => {
-  const footerLinks = [
-    {
-      name: "About",
-      route: ROUTE.ABOUT,
-    },
-    {
-      name: "Playlist",
-      route: ROUTE.PLAYLIST,
-    },
-    {
-      name: "Project",
-      route: ROUTE.PROJECTS,
-    },
-    {
-      name: "Accolades",
-      route: ROUTE.ACCOLADES,
-    },
-  ];
-
   const router = useRouter();
   return (
     <div>
@@ -37,16 +19,18 @@ const SocialLinks = () => {
           Links
         </MenuButton>
         <MenuList>
-          {footerLinks.map((link) => {
-            return (
-              <MenuItem
-                key={link.route}
-                onClick={() => router.push(link.route)}
-              >
-                {link.name}
-              </MenuItem>
-            );
-          })}
+          {navLinks
+            .filter((project) => project.enabled)
+            .map((link) => {
+              return (
+                <MenuItem
+                  key={link.route}
+                  onClick={() => router.push(link.route)}
+                >
+                  {link.name}
+                </MenuItem>
+              );
+            })}
         </MenuList>
       </Menu>
     </div>

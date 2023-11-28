@@ -42,7 +42,7 @@ const Home: NextPage = () => {
             color: "black.500",
           }}
         >
-          We Are
+          Welcome to
         </Text>
       </motion.div>
       <motion.div
