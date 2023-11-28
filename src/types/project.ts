@@ -1,6 +1,8 @@
 export interface IProject {
-  projectId: string;
+  projectId?: string;
   title: string;
   description: string;
-  projectUrl: string;
+  sourceCodeUrl: string;
+  createdAt?: number;
+  updatedAt?: number;
 }

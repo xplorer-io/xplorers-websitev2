@@ -14,10 +14,13 @@ export function ProjectCard({
   project,
   onGoToProjectClick,
 }: IProjectCardProps) {
-  const { title, description, projectId, projectUrl } = project;
+  const { title, description, projectId, sourceCodeUrl } = project;
 
   const handleGoToPlayListClick = () => {
-    onGoToProjectClick(projectUrl);
+    console.log(sourceCodeUrl);
+    console.log("clicked");
+
+    onGoToProjectClick(sourceCodeUrl);
   };
 
   return (
@@ -37,7 +40,6 @@ export function ProjectCard({
       <Text color="gray.600" mb="4">
         {description}
       </Text>
-      Image
       <Button
         rightIcon={<ExternalLinkIcon />}
         colorScheme="teal"
