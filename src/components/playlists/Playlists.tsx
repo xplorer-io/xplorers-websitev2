@@ -12,13 +12,13 @@ interface IPlaylistsProps {
 export function Playlists({ playlists, onGoToPlayListClick }: IPlaylistsProps) {
   return (
     <PlaylistsLayout>
-      <Heading as="h3" size="md" mb="2">
-        Here are the list of playlists.
-      </Heading>
-      <Flex gap="5" flexWrap="wrap">
+        <Heading as="h2" size={{ base: 'md', md: 'lg', lg: 'xl' }}>
+            Please enjoy playlists from our community!
+        </Heading>
+      <Flex gap="5" flexWrap="wrap" justifyContent="space-between">
         {playlists.map((playlist) => (
           <PlaylistCard
-            key={playlist.id}
+            key={playlist.videoId}
             playlist={playlist}
             onGoToPlayListClick={onGoToPlayListClick}
           />

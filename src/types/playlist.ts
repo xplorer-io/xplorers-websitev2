@@ -1,6 +1,7 @@
 export interface IPlaylist {
-    id: string;
+    videoId: string;
     title: string;
     description: string;
-    playlistURL: string;
+    videoUrl: string;
+    thumbnailUrl: string;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Box, Button, Heading, Text } from "@chakra-ui/react";
+import { Button, Heading, Text, Image } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 
 import { IPlaylist } from "../../types/playlist";
@@ -15,11 +15,12 @@ export function PlaylistCard({
   playlist,
   onGoToPlayListClick,
 }: IPlaylistsCardProps) {
-  const { title, description, playlistURL } = playlist;
+  const { title, description, videoUrl, thumbnailUrl } = playlist;
 
   const handleGoToPlayListClick = () => {
-    onGoToPlayListClick(playlistURL);
+    onGoToPlayListClick(videoUrl);
   };
+
 
   return (
     <PlaylistCardLayout>
@@ -29,16 +30,11 @@ export function PlaylistCard({
       <Text color="gray.600" mb="4">
         {description}
       </Text>
-      <Box>
-        <Box
-          as="iframe"
-          title={title}
-          src={playlistURL}
-          height="100px"
-          allowFullScreen
-          borderRadius="lg"
+
+        <Image
+            maxWidth="max-content"
+            src={thumbnailUrl}
         />
-      </Box>
 
       <Button
         rightIcon={<ExternalLinkIcon />}
