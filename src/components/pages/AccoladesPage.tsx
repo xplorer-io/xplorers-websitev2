@@ -139,7 +139,7 @@ const AccoladesPage: NextPage = () => {
           </ModalFooter>
         </ModalContent>
       </Modal>
-      {!data && (
+      {!data && !fetchingAccolades && (
         <Alert status="error">
           <AlertIcon />
           There was an error processing your request

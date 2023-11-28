@@ -21,7 +21,6 @@ export function PlaylistCard({
     onGoToPlayListClick(videoUrl);
   };
 
-
   return (
     <PlaylistCardLayout>
       <Heading as="h3" size="md" mb="2">
@@ -31,10 +30,7 @@ export function PlaylistCard({
         {description}
       </Text>
 
-        <Image
-            maxWidth="max-content"
-            src={thumbnailUrl}
-        />
+      <Image alt={title} maxWidth="max-content" src={thumbnailUrl} />
 
       <Button
         rightIcon={<ExternalLinkIcon />}
