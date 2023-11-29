@@ -10,15 +10,6 @@ import slackIcon from "../../public/images/slackIcon.svg";
 import { useUserContext } from "contexts/UserContext";
 
 const Home: NextPage = () => {
-  const { setUser } = useUserContext();
-
-  useEffect(() => {
-    const findUser = sessionStorage.getItem("user");
-
-    const loggedInUser = !!findUser ? JSON.parse(findUser) : undefined;
-    setUser(loggedInUser);
-  }, [setUser]);
-
   return (
     <Box
       sx={{

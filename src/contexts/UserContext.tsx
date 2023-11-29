@@ -6,6 +6,7 @@ import {
   SetStateAction,
   createContext,
   useContext,
+  useEffect,
   useState,
 } from "react";
 
@@ -20,6 +21,15 @@ export const useUserContext = () => useContext(UserContext);
 
 export const UserContextProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<IUser | undefined>();
+
+  useEffect(() => {
+    if (window) {
+      const findUser = sessionStorage.getItem("user");
+
+      const loggedInUser = !!findUser ? JSON.parse(findUser) : undefined;
+      setUser(loggedInUser);
+    }
+  }, []);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
